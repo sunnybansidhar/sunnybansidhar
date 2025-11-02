@@ -8,25 +8,24 @@
 </head>
 <body>
   <!-- ===== HEADER ===== -->
-   
   <header>
     <nav class="navbar">
       <div class="logo">Code<span>Craft</span>By<span>Sunny</span></div>
 
-      <!-- Hamburger Button -->
       <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
-      
-
 
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#background">Background</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -35,7 +34,7 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1>Hello, I'm <span>Sunny Bansidhar</span></h1>
-          <p>Creative Web Developer & UI Designer 🚀</p>
+          <p id="typewriter"></p>
           <a href="#contact" class="btn">Contact Me</a>
         </div>
 
@@ -43,20 +42,39 @@
           <img src="sunny (2).jpg" alt="Sunny Bansidhar">
         </div>
       </div>
+      <div class="scroll-down">↓</div>
     </section>
   </header>
 
   <!-- ===== MAIN ===== -->
   <main>
-    <section id="about">
+    <section id="about" class="fade-in">
       <h2>About Me</h2>
       <p>
-        I’m a web developer passionate about modern front-end technologies,
-        building smooth UI experiences and dynamic websites.
+        I’m a passionate Web Developer currently pursuing BS in Computer Science at University of Sindh, Jamshoro.  
+        My goal is to become a full-stack developer, creating smooth, modern, and user-friendly websites.
       </p>
     </section>
 
-    <section id="skills">
+    <section id="background" class="fade-in">
+      <h2>Background</h2>
+      <div class="background-content">
+        <h3>🎓 Education</h3>
+        <ul>
+          <li><strong>BS Computer Science</strong> – University of Sindh, Jamshoro (2023 – Present)</li>
+          <li><strong>Intermediate (Pre-Engineering)</strong> – Govt. Degree College, 2020 – 2022</li>
+        </ul>
+
+        <h3>📜 Certifications</h3>
+        <ul>
+          <li>Front-End Web Development – Internee.pk</li>
+          <li>Python for Data Science – University of Sindh</li>
+          <li>“Frontend Basics – YouTube Learning”</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills" class="fade-in">
       <h2>Skills</h2>
       <div class="skills-grid">
         <div class="skill">HTML & CSS</div>
@@ -68,14 +86,54 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="fade-in">
       <h2>Projects</h2>
       <div class="project-box">
-        <p>Coming soon ...</p>
+        <h3>🌤 Weather App</h3>
+        <p>A simple web app that fetches real-time weather data using OpenWeather API.</p>
+        <p><strong>Tech Used:</strong> HTML, CSS, JavaScript</p>
+        <p><strong>Role:</strong> Frontend Developer</p>
+        <a href="https://sunnybansidhar.github.io/Internee-project-s/" target="_blank" class="btn">View Project</a>
+      </div>
+
+      
+    </section>
+
+    <section id="experience" class="fade-in">
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Frontend Intern</strong> – Internee.pk (2025)
+          <br>Worked on building responsive web interfaces using HTML, CSS, and JS.
+        </li>
+        <li><strong>Personal Projects</strong> – Created multiple frontend apps showcasing web skills.</li>
+      </ul>
+    </section>
+
+    <section id="achievements" class="fade-in">
+      <h2>Achievements</h2>
+      <ul>
+        <li>🏅 Selected as Web Development Intern at Internee.pk</li>
+        <li>🏆 Completed 10+ mini web projects</li>
+        <li>🎖 Active student developer at University of Sindh</li>
+      </ul>
+    </section>
+
+    <section id="testimonials" class="fade-in">
+      <h2>Testimonials</h2>
+      <div class="testimonial-box">
+        <p>"Sunny is a creative and hardworking developer. His attention to detail and design sense is impressive!"</p>
+        <span>- Mentor, Internee.pk</span>
       </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="blog" class="fade-in">
+      <h2>Blog / Articles</h2>
+      <div class="project-box">
+        <p>🚧 Coming Soon! I'll be sharing articles on web development and learning experiences.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact fade-in">
       <h2>Contact Me</h2>
       <form>
         <input type="text" placeholder="Your Name" required />
@@ -85,6 +143,7 @@
 
         <p>Email: <a href="mailto:sunnybansidhar@email.com">sunnybansidhar@email.com</a></p>
         <p>GitHub: <a href="https://github.com/sunnybansidhar" target="_blank">github.com/sunnybansidhar</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sunnybansidhar" target="_blank">linkedin.com/in/sunnybansidhar</a></p>
       </form>
     </section>
   </main>

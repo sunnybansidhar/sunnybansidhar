@@ -1,98 +1,81 @@
-// ===== Smooth Scrolling =====
+// ===== Smooth Scroll =====
 document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
+  anchor.addEventListener("click", e => {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop - 50,
-        behavior: "smooth"
-      });
-    }
+    const target = document.querySelector(anchor.getAttribute("href"));
+    if (target) window.scrollTo({ top: target.offsetTop - 50, behavior: "smooth" });
   });
 });
 
-// ===== Active Nav Link on Scroll =====
+// ===== Active Nav =====
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
-
 window.addEventListener("scroll", () => {
   let current = "";
   sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= sectionTop - sectionHeight / 3) {
-      current = section.getAttribute("id");
-    }
+    const top = section.offsetTop, height = section.clientHeight;
+    if (pageYOffset >= top - height / 3) current = section.id;
   });
-
   navLinks.forEach(link => {
     link.classList.remove("active");
-    if (link.getAttribute("href").includes(current)) {
-      link.classList.add("active");
-    }
+    if (link.getAttribute("href").includes(current)) link.classList.add("active");
   });
 });
 
-// ===== Scroll to Top Button =====
+// ===== Scroll Top Btn =====
 const scrollBtn = document.createElement("button");
 scrollBtn.textContent = "↑";
 scrollBtn.id = "scrollTopBtn";
 document.body.appendChild(scrollBtn);
-
-scrollBtn.style.position = "fixed";
-scrollBtn.style.bottom = "25px";
-scrollBtn.style.right = "25px";
-scrollBtn.style.background = "#e63946";
-scrollBtn.style.color = "#fff";
-scrollBtn.style.border = "none";
-scrollBtn.style.borderRadius = "50%";
-scrollBtn.style.width = "45px";
-scrollBtn.style.height = "45px";
-scrollBtn.style.fontSize = "1.3rem";
-scrollBtn.style.cursor = "pointer";
-scrollBtn.style.boxShadow = "0 0 10px rgba(230, 57, 70, 0.5)";
-scrollBtn.style.display = "none";
-scrollBtn.style.transition = "0.3s";
-
+Object.assign(scrollBtn.style, {
+  position: "fixed", bottom: "25px", right: "25px", background: "#e63946",
+  color: "#fff", border: "none", borderRadius: "50%", width: "45px", height: "45px",
+  fontSize: "1.3rem", cursor: "pointer", boxShadow: "0 0 10px rgba(230,57,70,0.5)",
+  display: "none", transition: "0.3s"
+});
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollBtn.style.display = "block";
-  } else {
-    scrollBtn.style.display = "none";
-  }
+  scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
 });
+scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-scrollBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-
-// ===== Contact Form Alert =====
+// ===== Contact Form =====
 const contactForm = document.querySelector(".contact form");
 if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
+  contactForm.addEventListener("submit", e => {
     e.preventDefault();
     alert("📩 Thank you! Your message has been sent successfully.");
     contactForm.reset();
   });
 }
 
-// ===== Hamburger Menu Toggle =====
+// ===== Hamburger =====
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-links");
-
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
 });
 
-// Close menu on link click
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
+// ===== Fade-In Animation =====
+const fadeEls = document.querySelectorAll(".fade-in");
+const appear = () => {
+  fadeEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 50) el.classList.add("show");
   });
-});
+};
+window.addEventListener("scroll", appear);
+appear();
+
+// ===== Typewriter =====
+const text = "Frontend Developer | JavaScript Enthusiast | Learner 💻";
+const typeEl = document.getElementById("typewriter");
+let i = 0;
+function typingEffect() {
+  if (i < text.length) {
+    typeEl.textContent += text.charAt(i);
+    i++;
+    setTimeout(typingEffect, 50);
+  }
+}
+typingEffect();
